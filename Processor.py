@@ -1,7 +1,7 @@
-import os
 import re
+import os
 def readInfo(line):
-    return int(re.findall(" \d.*? ", line)[0])
+    return int(re.findall(" (\d.*?) ", line)[0])
 class Processor:
     dataCache = None
     instructionsCache = None
@@ -9,7 +9,7 @@ class Processor:
         self.dataCache = dataCache
         self.instructionCache = instructionsCache
     def runSimCache(self, executablePath, tempFilePath, benchmarkPath):
-        os.system("./%s -cache:il1 il1:%d:%d:%d:l -cache:il2 none -cache:dl1 dl1:%d:%d:%d:l -cache:dl2 none -redir:sim %s -max:inst 100000 %s" % (
+        os.system("./%s -cache:il1 il1:%d:%d:%d:l -cache:il2 none -cache:dl1 dl1:%d:%d:%d:l -cache:dl2 none -redir:sim %s -max:inst 40000000 %s" % (
             executablePath, 
             self.dataCache.arrangements(), 
             self.dataCache.blockSize, 
@@ -31,7 +31,6 @@ class Processor:
                 self.dataCache.misses = readInfo(line)
             elif line.startswith("dl1.writebacks"): 
                 self.dataCache.writebacks = readInfo(line)
-        print "\nInstructions cache"
-        self.instructionCache.printCache()
-        print "\nData cache"
-        self.dataCache.printCache()
+    def runCacti(self, executablePath, catciConfigPath, cactiBasePath):
+        self.dataCache.runCacti(executablePath, catciConfigPath, cactiBasePath)
+        self.instructionCache.runCacti(executablePath, catciConfigPath, cactiBasePath)
