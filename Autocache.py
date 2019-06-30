@@ -1,7 +1,6 @@
 from Processor import Processor
 from Cache import Cache
 Benchmarks = [
-    "Benchmarks/amp.ss",
     "Benchmarks/cc1.ss -O Benchmarks/1stmt.i",
     "Benchmarks/mm.ss"
 ]
