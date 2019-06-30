@@ -7,7 +7,7 @@ of SimpleScalar, LLC (info@simplescalar.com).
 
 sim: command line: ./simplesim-3.0/sim-cache -cache:il1 il1:16:32:8:l -cache:il2 none -cache:dl1 dl1:16:32:8:l -cache:dl2 none -redir:sim temp.txt -max:inst 100000 Benchmarks/amp.ss 
 
-sim: simulation started @ Sun Jun 30 11:46:26 2019, options follow:
+sim: simulation started @ Sun Jun 30 12:38:44 2019, options follow:
 
 sim-cache: This simulator implements a functional cache simulator.  Cache
 statistics are generated for a user-selected cache and TLB configuration,

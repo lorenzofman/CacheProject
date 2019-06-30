@@ -13,3 +13,5 @@ class Cache:
         self.associativity = associativity
     def arrangements(self):
         return self.cacheSize/(self.blockSize * self.associativity) 
+    def printCache(self):
+        print("CacheSize: %d\nBlockSize: %d\nAssociativity: %d\nHits: %d \nMisses: %d\nWritebacks: %d \nLatency: %f \nEnergy: %f" % (self.cacheSize, self.blockSize, self.associativity, self.hits, self.misses, self.writebacks, self.cacheLatency, self.cacheEnergy))

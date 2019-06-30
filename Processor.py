@@ -1,4 +1,7 @@
 import os
+import re
+def readInfo(line):
+    return int(re.findall(" \d.*? ", line)[0])
 class Processor:
     dataCache = None
     instructionsCache = None
@@ -17,3 +20,18 @@ class Processor:
             tempFilePath,
             benchmarkPath))
         file = open(tempFilePath, "r")
+        for line in file:
+            if line.startswith("il1.hits"):
+                self.instructionCache.hits = readInfo(line)
+            elif line.startswith("il1.misses"):
+                self.instructionCache.misses = readInfo(line)
+            elif line.startswith("dl1.hits"):
+                self.dataCache.hits = readInfo(line)
+            elif line.startswith("dl1.misses"):
+                self.dataCache.misses = readInfo(line)
+            elif line.startswith("dl1.writebacks"): 
+                self.dataCache.writebacks = readInfo(line)
+        print "\nInstructions cache"
+        self.instructionCache.printCache()
+        print "\nData cache"
+        self.dataCache.printCache()
