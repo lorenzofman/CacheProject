@@ -1,3 +1,5 @@
+import os
+Benchmarks = []
 class Cache:
     cacheSize = 4096
     blockSize = 32
@@ -12,6 +14,9 @@ class Cache:
         self.associativity = associativity
     def printCache(self):
         print("CacheSize: %d\nBlockSize: %d\nAssociativity: %d\nHits: %d \nMisses: %d \nLatency: %f \nEnergy: %f" % (self.cacheSize, self.blockSize, self.associativity, self.hits, self.misses, self.cacheLatency, self.cacheEnergy))
+    def runSimCache(self, path):
+        os.system("./%s" % path)
 
-p1 = Cache(4096, 32, 8)
-p1.printCache()
+
+cache = Cache(4096, 32, 8)
+cache.runSimCache("simplesim-3.0/sim-cache")
