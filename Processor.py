@@ -5,11 +5,12 @@ def readInfo(line):
 class Processor:
     dataCache = None
     instructionCache = None
+    error = None
     def __init__(self, dataCache, instructionCache):
         self.dataCache = dataCache
         self.instructionCache = instructionCache
     def runSimCache(self, executablePath, tempFilePath, benchmarkPath):
-        os.system("./%s -cache:il1 il1:%d:%d:%d:l -cache:il2 none -cache:dl1 dl1:%d:%d:%d:l -cache:dl2 none -redir:sim %s %s" % (
+        os.system("./%s -cache:il1 il1:%d:%d:%d:l -cache:il2 none -cache:dl1 dl1:%d:%d:%d:l -cache:dl2 none -max:inst 134217728 -redir:sim %s %s" % (
             executablePath, 
             self.dataCache.arrangements(), 
             self.dataCache.blockSize, 
