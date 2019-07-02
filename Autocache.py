@@ -21,7 +21,7 @@ for cache in cachePossibilities:
 out = open("out.csv", "w")
 out.write("Cache size, Block Size, Associativity, Cache Latency, Cache Energy, Data Hits, Data Misses, Writebacks, Instructions Hits, Instruction Misses\n")
 for proc in processors:
-    out.write("%d,%d,%d,%f,%f,%d,%d,%d,%d %d\n" % (
+    out.write("%d,%d,%d,%f,%f,%d,%d,%d,%d,%d\n" % (
         proc.dataCache.cacheSize, 
         proc.dataCache.blockSize,
         proc.dataCache.associativity,
