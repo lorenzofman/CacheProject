@@ -7,9 +7,9 @@ Benchmarks = [
     "Benchmarks/basicmath.ss"
 ]
 processors = []
-cachePossibilities = [512, 1024, 2048, 4096, 8192]
-blockSizePossibilities = [32, 64, 128]
-associativityPossibilites = [1, 2, 4, 8, 16, 32]
+cachePossibilities = [512, 1024, 2048, 4096, 8192, 16384, 32768]
+blockSizePossibilities = [32, 64, 128, 256, 512, 1024]
+associativityPossibilites = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 for cache in cachePossibilities:
     for blockSize in blockSizePossibilities:
         for associativity in associativityPossibilites:
